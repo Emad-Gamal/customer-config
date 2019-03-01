@@ -1,0 +1,33 @@
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+          <h3>Update Customer</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="updateForm" class="edit-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="First Name" formControlName="firstName" #firstName [(ngModel)]="customer.name.first">
+        </mat-form-field>&nbsp;&nbsp;
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Last Name" formControlName="lastName" #lastName [(ngModel)]="customer.name.last">
+        </mat-form-field>&nbsp;&nbsp;
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="birthday" placeholder="Birthday" [(ngModel)]="customer.birthday">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>&nbsp;&nbsp;
+        <mat-form-field class="field-full-width">
+          <mat-select placeholder="Gender" formControlName="gender" [(ngModel)]="customer.gender"#severity>
+            <mat-option value="m">Male</mat-option>
+            <mat-option value="f">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+        <button type="submit" (click)="updateCustomer()" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-card>
+</div>

@@ -1,0 +1,33 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Create A New Customer</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="First Name" formControlName="firstName" #firstName>
+      </mat-form-field>&nbsp;&nbsp;
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Last Name" formControlName="lastName" #lastName>
+      </mat-form-field>&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" formControlName="birthday" placeholder="Birthday">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>&nbsp;&nbsp;
+      <mat-form-field class="field-full-width">
+        <mat-select placeholder="Gender" formControlName="gender" #severity>
+          <mat-option value="m">Male</mat-option>
+          <mat-option value="f">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="addCustomer()" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
