@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 // Routing resources
 app.use('/api/', require('./routes/customer.js')); // CRUD API routinh
-app.use('/', require('./routes/index.js')); // Client side routing
+app.use('*', require('./routes/index.js')); // Client side routing
 
 
 const port = process.env.PORT || 4000; // process.env.PORT used for Heroku deployment
